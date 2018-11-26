@@ -13,7 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hanbitco.example.common.ResponseCode;
 import com.hanbitco.example.service.CurrencyService;
-
+/**
+ * Controller to get Currency Information
+ * 
+ * response example
+ * {
+	"status": "success",
+	"data": {
+		"BTC_KRW": {
+			"bithumb": {
+				"originPair": "BTCKRW",
+				"last": 7471000.0
+			},
+			"coinone": {
+				"originPair": "BTCKRW",
+				"last": 7503000.0
+			},
+			"korbit": {
+				"originPair": "BTCKRW",
+				"last": 7524500.0
+			},
+			"bitfinex": null
+		},
+		.........
+ * @author skyang
+ *
+ */
 @RestController
 @RequestMapping(value = "/api/v1/data")
 public class CurrencyController {
@@ -22,6 +47,10 @@ public class CurrencyController {
 	private CurrencyService currencyService;
 	private Map<String, Object> body;
 
+	/**
+	 * Get one Currency corresponding @PathVariable('currency')
+	 * @return ResponseEntity
+	 */
 	@RequestMapping(value = "/currency/{currency}", method = RequestMethod.GET)
 	public ResponseEntity<Map<?, ?>> getACurrency(@PathVariable String currency) {
 		
@@ -39,7 +68,10 @@ public class CurrencyController {
 		}
 
 	}
-
+	/**
+	 * Get All Currency Information
+	 * @return ResponseEntity
+	 */
 	@RequestMapping(value = "/currency", method = RequestMethod.GET)
 	public ResponseEntity<Map<?, ?>> getAllCurrency() {
 
