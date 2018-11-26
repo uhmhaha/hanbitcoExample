@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * 
+ * ObjectMapper에서 last필드의 소수점을 소수점 이하 1자리로 정리하기 위한 serializer 
  * @author skyang
  *
  */
